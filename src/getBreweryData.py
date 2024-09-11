@@ -1,8 +1,8 @@
 import requests
 
-API_URL = "https://api.openbrewerydb.org/v1/breweries/random"
+API_URL_BASE = "https://api.openbrewerydb.org/v1/breweries"
 
-def get_brewery_data():
-    response = requests.get(API_URL)
+def get_random_brewery():
+    response = requests.get(API_URL_BASE + "/random")
     return response.json()[0]
 

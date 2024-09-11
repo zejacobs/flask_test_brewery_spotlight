@@ -1,0 +1,14 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(white, gold);
+  text-align: center;
+}
+
+#brewery_info {
+  border: 1px solid black;
+  border-width: auto;
+}
