@@ -5,6 +5,6 @@ views = Blueprint(__name__, "views")
 
 @views.route("/")
 def home():
-    brewery_data = get_random_brewery()
+    brewery_data = get_random_brewery(True)
 
     return render_template("index.html", brewery_data=brewery_data)
