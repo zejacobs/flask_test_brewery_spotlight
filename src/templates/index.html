@@ -5,14 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Brewery Spotlight</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css')}}" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
   </head>
   <body>
-    <h1>Brewery Spotlight</h1>
+    <div class="pageTitle"><h1>Brewery Spotlight</h1></div>
+
     <div class="card">
       <div>Name: {{brewery_data.name}}</div>
       <div>Address: {{brewery_data.street}}, {{brewery_data.city}}, {{brewery_data.state_province}} {{brewery_data.postal_code}} {{brewery_data.country}}</div>
       <div>Phone: {{brewery_data.phone}}</div>
       <div>Website: <a href="{{brewery_data.website_url}}">{{brewery_data.website_url}}</a></div>
+      <br />
+      <div id="map"></div>
     </div>
     <!-- First set of bubbles -->
     <div class="bubble bub1"></div>
@@ -28,4 +32,18 @@
     <div class="bubble bub10"></div>
     <div class="bubble bub11"></div>
   </body>
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script>
+    // Initialize the map and set its view to the chosen geographical coordinates and zoom level
+    const latLong = ["{{brewery_data.latitude}}", "{{brewery_data.longitude}}"];
+    var map = L.map("map").setView(latLong, 14);
+
+    // Load and display the tile layer (map) from OpenStreetMap
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+    }).addTo(map);
+
+    // Add a marker to the map at the chosen coordinates
+    var marker = L.marker(latLong).addTo(map); // Replace with your coordinates
+  </script>
 </html>

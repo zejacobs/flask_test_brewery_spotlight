@@ -10,7 +10,9 @@ DUMMY_DATA = {
     "postal_code": "01234",
     "country": "USA",
     "phone": "123-456-7890",
-    "website_url": "www.testbrewery.com"
+    "website_url": "www.testbrewery.com",
+    "latitude": "42.13960",
+    "longitude": "-72.01664"
 }
 
 def get_random_brewery(TEST=False):
