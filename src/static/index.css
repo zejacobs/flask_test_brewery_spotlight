@@ -1,18 +1,14 @@
-html,
 body {
   height: 100vh;
   margin: 0;
-}
-
-body {
   font-family: Arial, Helvetica, sans-serif;
   background: linear-gradient(white 0%, gold 50%);
-  overflow: hidden;
 }
 
 .pageTitle {
   max-width: fit-content;
   margin: auto;
+  padding: 10px;
 }
 
 .card {
@@ -34,10 +30,11 @@ body {
   position: absolute;
   z-index: -1;
   top: 0;
-  width: 30px;
-  height: 30px;
+  width: 3vw;
+  height: 3vw;
   background-color: white;
   border-radius: 50%;
+  opacity: 0;
   animation: bubbleUp 6s linear infinite;
 }
 .bub1 {
@@ -88,15 +85,22 @@ body {
   left: 100%;
   animation-delay: 3s;
 }
-
 @keyframes bubbleUp {
   from {
     transform: translateX(-15px) translateY(100vh) scale(0.5);
     opacity: 0.8;
   }
-
   to {
     transform: translateX(-15px) translateY(0) scale(1.2);
     opacity: 0.5;
   }
+}
+
+.bubbleWrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
 }
